@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "quotesapp-react-native",
-    "slug": "quotesapp-react-native",
+    "name": "quotesapp",
+    "slug": "quotesapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
