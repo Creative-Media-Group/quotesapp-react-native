@@ -4,18 +4,25 @@ import { fetchQuotes } from './fetchQuotes'
 
 export default function Index() {
   const API_KEY = "";
-  const [data, setData] = useState("")
+  const [quote, setQuote] = useState("")
+  const [autor, setAuthor] = useState("")
 
   useEffect(() => {
-    const loadData = async () => {
+    const loadQuote = async () => {
       try {
-        const quotes = await fetchQuotes(API_KEY);
-        setData(quotes);
+        const data = await fetchQuotes(API_KEY); // Externe Funktion aufrufen
+        if (data && data.length > 0) {
+          setQuote(data[0].quote); // Zitat auslesen
+          setAuthor(data[0].author); // Autor auslesen
+        } else {
+          Alert.alert("No Data", "No quotes found");
+        }
       } catch (error) {
-        Alert.alert("Check connection", "Failed to fetch data");
+        Alert.alert("Error", "Failed to fetch quotes");
       }
+
     };
-    loadData();
+    loadQuote();
   }, []);
   return (
     <View
@@ -25,8 +32,25 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text style={{}}>here is a quote</Text>
-      <Button title="Refresh"></Button>
+      <Text>{quote}</Text>
+      <Text>{autor}</Text>
+      <Button title="Refresh" onPress={() => {
+        const loadQuote = async () => {
+          try {
+            const data = await fetchQuotes(API_KEY); // Externe Funktion aufrufen
+            if (data && data.length > 0) {
+              setQuote(data[0].quote); // Zitat auslesen
+              setAuthor(data[0].author); // Autor auslesen
+            } else {
+              Alert.alert("No Data", "No quotes found");
+            }
+          } catch (error) {
+            Alert.alert("Error", "Failed to fetch quotes");
+          }
+
+        };
+        loadQuote();
+      }}></Button>
     </View>
   );
 }
