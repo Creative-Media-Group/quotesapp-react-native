@@ -18,7 +18,7 @@ export default function Index() {
       if (response.ok) {
         setData(data)
       } else {
-        Alert.alert("Check connection", "Check connection", )
+        Alert.alert("Check connection", "Check connection", [{text:'Exit', onPress:()}])
       }
     }
   })
