@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Alert, Text, View } from "react-native";
+import RNExitApp from 'react-native-exit-app';
 
 export default function Index() {
   const API_KEY = ""
@@ -18,10 +19,13 @@ export default function Index() {
       if (response.ok) {
         setData(data)
       } else {
-        Alert.alert("Check connection", "Check connection", [{text:'Exit', onPress:()}])
+        Alert.alert("Check connection", "Check connection", [{ text: 'Exit', onPress: () => RNExitApp.exitApp() }])
       }
-    }
-  })
+      const json = await response.json();
+      setData(json);
+    };
+    fetchData();
+  },[]);
   return (
     <View
       style={{
@@ -30,7 +34,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>{data}</Text>
+      <Text>{JSON.stringify(data)}</Text>
     </View>
   );
 }
