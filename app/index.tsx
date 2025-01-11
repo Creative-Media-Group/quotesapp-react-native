@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { Alert, Text, View, Button } from "react-native";
+import { Alert, Text, View, Button, StyleSheet } from "react-native";
 import { fetchQuotes } from './fetchQuotes'
+import Constants from 'expo-constants';
 
 export default function Index() {
-  const API_KEY = "";
+  const API_KEY = Constants.expoConfig?.extra?.API_KEY;
   const [quote, setQuote] = useState("")
   const [autor, setAuthor] = useState("")
 
@@ -32,7 +33,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>{quote}</Text>
+      <Text style={style.text}>{quote}</Text>
       <Text>{autor}</Text>
       <Button title="Refresh" onPress={() => {
         const loadQuote = async () => {
@@ -54,3 +55,8 @@ export default function Index() {
     </View>
   );
 }
+const style = StyleSheet.create({
+  text: {
+    margin: 'auto'
+  }
+});
