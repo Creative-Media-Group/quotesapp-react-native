@@ -1,14 +1,25 @@
 import { useEffect, useState } from "react";
-import { Text, View } from "react-native";
+import { Alert, Text, View } from "react-native";
 
 export default function Index() {
   const API_KEY = ""
-  const [data, getdata] = useState("")
+  const [data, setData] = useState("")
   //const quote = "Quote"
   //const author = "Author"
-  useEffect(() =>{
-    const fetchData = async() => {
-      const response = await fetch(`${API_KEY}`)
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`https://api.api-ninjas.com/v1/quotes`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Api-Key': API_KEY
+        },
+      });
+      if (response.ok) {
+        setData(data)
+      } else {
+        Alert.alert("Check connection", "Check connection", )
+      }
     }
   })
   return (
