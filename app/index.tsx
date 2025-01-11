@@ -1,8 +1,16 @@
+import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 
 export default function Index() {
-  const quote = "Quote"
-  const author = "Author"
+  const API_KEY = ""
+  const [data, getdata] = useState("")
+  //const quote = "Quote"
+  //const author = "Author"
+  useEffect(() =>{
+    const fetchData = async() => {
+      const response = await fetch(`${API_KEY}`)
+    }
+  })
   return (
     <View
       style={{
@@ -11,8 +19,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>{quote}</Text>
-      <Text>{author}</Text>
+      <Text>{data}</Text>
     </View>
   );
 }
