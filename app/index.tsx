@@ -11,7 +11,8 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>quote</Text>
+      <Text>{quote}</Text>
+      <Text>{author}</Text>
     </View>
   );
 }
