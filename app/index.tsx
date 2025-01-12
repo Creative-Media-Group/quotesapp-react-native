@@ -4,9 +4,9 @@ import { fetchQuotes } from './fetchQuotes'
 import Constants from 'expo-constants';
 
 export default function Index() {
-  const API_KEY = Constants.expoConfig?.extra?.API_KEY;
-  const [quote, setQuote] = useState("")
-  const [autor, setAuthor] = useState("")
+  const API_KEY = process.env.API_KEY;
+  const [quote, setQuote] = useState("");
+  const [autor, setAuthor] = useState("");
 
   useEffect(() => {
     const loadQuote = async () => {
