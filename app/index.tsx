@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Alert, Text, View, Button, StyleSheet } from "react-native";
 import fetchQuotes from "./fetchQuotes"
 import Constants from 'expo-constants';
-import { API_KEY } from '@env';
 
 export default function Index() {
   const apiKey = API_KEY;
