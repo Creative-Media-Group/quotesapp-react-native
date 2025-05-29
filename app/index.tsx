@@ -2,16 +2,17 @@ import { useEffect, useState } from "react";
 import { Alert, Text, View, Button, StyleSheet } from "react-native";
 import fetchQuotes from "./fetchQuotes"
 import Constants from 'expo-constants';
+import { API_KEY } from '@env';
 
 export default function Index() {
-  const API_KEY = process.env.API_KEY;
+  const apiKey = API_KEY;
   const [quote, setQuote] = useState("");
   const [autor, setAuthor] = useState("");
 
   useEffect(() => {
     const loadQuote = async () => {
       try {
-        const data = await fetchQuotes(API_KEY); // Externe Funktion aufrufen
+        const data = await fetchQuotes(apiKey); // Externe Funktion aufrufen
         if (data && data.length > 0) {
           setQuote(data[0].quote); // Zitat auslesen
           setAuthor(data[0].author); // Autor auslesen
@@ -39,7 +40,7 @@ export default function Index() {
         <Button title="Refresh" onPress={() => {
           const loadQuote = async () => {
             try {
-              const data = await fetchQuotes(API_KEY); // Externe Funktion aufrufen
+              const data = await fetchQuotes(apiKey); // Externe Funktion aufrufen
               if (data && data.length > 0) {
                 setQuote(data[0].quote); // Zitat auslesen
                 setAuthor(data[0].author); // Autor auslesen
