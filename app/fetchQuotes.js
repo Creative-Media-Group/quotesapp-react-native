@@ -15,7 +15,7 @@ export default function fetchQuotes(API_KEY: string) {
 
             const json = await response.json(); // Die API-Antwort wird geparsed
             return json; // Rückgabe der JSON-Daten
-        } catch (error: any) {
+        } catch (error) {
             console.error("Error fetching data:", error.message);
             throw error; // Fehler weitergeben, um sie in der aufrufenden Funktion zu behandeln
         }
