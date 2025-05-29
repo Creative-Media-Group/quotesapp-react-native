@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Alert, Text, View, Button, StyleSheet } from "react-native";
-import { fetchQuotes } from './fetchQuotes'
+import fetchQuotes from "./fetchQuotes"
 import Constants from 'expo-constants';
 
 export default function Index() {
@@ -35,28 +35,34 @@ export default function Index() {
     >
       <Text style={style.text}>{quote}</Text>
       <Text>{autor}</Text>
-      <Button title="Refresh" onPress={() => {
-        const loadQuote = async () => {
-          try {
-            const data = await fetchQuotes(API_KEY); // Externe Funktion aufrufen
-            if (data && data.length > 0) {
-              setQuote(data[0].quote); // Zitat auslesen
-              setAuthor(data[0].author); // Autor auslesen
-            } else {
-              Alert.alert("No Data", "No quotes found");
+      <View style={style.refreshbtn}>
+        <Button title="Refresh" onPress={() => {
+          const loadQuote = async () => {
+            try {
+              const data = await fetchQuotes(API_KEY); // Externe Funktion aufrufen
+              if (data && data.length > 0) {
+                setQuote(data[0].quote); // Zitat auslesen
+                setAuthor(data[0].author); // Autor auslesen
+              } else {
+                Alert.alert("No Data", "No quotes found");
+              }
+            } catch (error) {
+              Alert.alert("Error", "Failed to fetch quotes");
             }
-          } catch (error) {
-            Alert.alert("Error", "Failed to fetch quotes");
-          }
 
-        };
-        loadQuote();
-      }}></Button>
+          };
+          loadQuote();
+        }}>
+        </Button>
+      </View>
     </View>
   );
 }
 const style = StyleSheet.create({
   text: {
     margin: 'auto'
-  }
+  },
+  refreshbtn: {
+    paddingVertical: 50
+  },
 });
