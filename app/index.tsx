@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Alert, Text, View, Button, StyleSheet } from "react-native";
-import fetchQuotes from "./fetchQuotes"
+import fetchQuotes from "../utils/fetchQuotes"
 import Constants from 'expo-constants';
 
 export default function Index() {
