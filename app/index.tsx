@@ -4,7 +4,7 @@ import fetchQuotes from "./fetchQuotes"
 import Constants from 'expo-constants';
 
 export default function Index() {
-  const apiKey = API_KEY;
+  const apiKey: any = process.env.EXPO_PUBLIC_API_KEY;
   const [quote, setQuote] = useState("");
   const [autor, setAuthor] = useState("");
 
