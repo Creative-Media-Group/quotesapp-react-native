@@ -1,6 +1,8 @@
-api.cache(false)
-module.exports = {
-    plugins: [
-        ['module:react-native-dotenv']
-    ]
+module.exports = function (api) {
+    api.cache(false);
+    return {
+        plugins: [
+            ['module:react-native-dotenv']
+        ]
+    };
 };
