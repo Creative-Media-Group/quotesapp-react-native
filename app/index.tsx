@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Alert, Text, View, Button, StyleSheet } from "react-native";
 import fetchQuotes from "../utils/fetchQuotes"
 import Constants from 'expo-constants';
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
   const apiKey: any = process.env.EXPO_PUBLIC_API_KEY;
@@ -26,7 +27,7 @@ export default function Index() {
     loadQuote();
   }, []);
   return (
-    <View
+    <SafeAreaView
       style={{
         flex: 1,
         justifyContent: "center",
@@ -34,7 +35,7 @@ export default function Index() {
       }}
     >
       <Text style={style.text}>{quote}</Text>
-      <Text>{autor}</Text>
+      <Text style={style.text}>{autor}</Text>
       <View style={style.refreshbtn}>
         <Button title="Refresh" onPress={() => {
           const loadQuote = async () => {
@@ -55,12 +56,13 @@ export default function Index() {
         }}>
         </Button>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 const style = StyleSheet.create({
   text: {
-    margin: 'auto'
+    margin: 'auto',
+
   },
   refreshbtn: {
     paddingVertical: 50
