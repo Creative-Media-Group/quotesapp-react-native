@@ -3,18 +3,10 @@ import { Alert, Text, View, Button, StyleSheet } from "react-native";
 import fetchQuotes from "../utils/fetchQuotes"
 import Constants from 'expo-constants';
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useTranslation } from 'react-i18next';
-import * as RNLocalize from "react-native-localize";
-import i18n from "@/utils/mylocalisation";
+import { i18n } from "@/utils/mylocalisation"
 
 export default function Index() {
-  const { t } = useTranslation();
-  useEffect(() => {
-    // Set the initial language based on device locale
-    const locale = RNLocalize.getLocales()[0].languageCode;
-    i18n.changeLanguage(locale);
-  }, []);
-  var button_title = t("refresh")
+  var button_title = i18n.t("refresh")
   const apiKey: any = process.env.EXPO_PUBLIC_API_KEY;
   const [quote, setQuote] = useState("");
   const [autor, setAuthor] = useState("");

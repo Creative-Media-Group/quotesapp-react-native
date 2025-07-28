@@ -1,21 +1,14 @@
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
 import en from "../localisation/translations/en.json"
 import de from "../localisation/translations/de.json"
+import { I18n } from "i18n-js";
+import { getLocales } from "expo-localization";
 
-const resources = {
+export const deviceLanguage = getLocales()?.[0]?.languageCode ?? "en";
+
+export const i18n = new I18n({
     en,
-    de
-};
+    de,
+});
 
-i18n
-    .use(initReactI18next)
-    .init({
-        resources,
-        lng: 'en', // Default language
-        interpolation: {
-            escapeValue: false, // React already escapes values
-        },
-    });
-
-export default i18n;
+i18n.defaultLocale = deviceLanguage;
+i18n.locale = deviceLanguage;
