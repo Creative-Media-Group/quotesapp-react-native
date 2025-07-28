@@ -4,7 +4,7 @@ import fetchQuotes from "../utils/fetchQuotes"
 import Constants from 'expo-constants';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useTranslation } from 'react-i18next';
-import * as RNLocalize from 'react-native-localize';
+import * as RNLocalize from "react-native-localize";
 import i18n from "@/utils/mylocalisation";
 
 export default function Index() {

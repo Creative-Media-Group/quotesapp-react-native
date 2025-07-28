@@ -23,6 +23,15 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
+      [
+        "react-native-localize",
+        {
+          "locales": [
+            "en",
+            "fr"
+          ]
+        }
+      ],
       "expo-router",
       [
         "expo-splash-screen",
