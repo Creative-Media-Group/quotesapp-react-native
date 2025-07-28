@@ -63,7 +63,7 @@ export default function Index() {
 }
 const style = StyleSheet.create({
   text: {
-    margin: 'auto',
+    alignContent: "center", margin: 'auto',
 
   },
   refreshbtn: {
