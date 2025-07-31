@@ -7,6 +7,8 @@ import { i18n } from "@/utils/mylocalisation"
 
 export default function Index() {
   var button_title = i18n.t("refresh")
+  var myerror = i18n.t("error")
+  var errormsg = i18n.t("errormsg")
   const apiKey: any = process.env.EXPO_PUBLIC_API_KEY;
   const [quote, setQuote] = useState("");
   const [autor, setAuthor] = useState("");
@@ -22,7 +24,7 @@ export default function Index() {
           Alert.alert("No Data", "No quotes found");
         }
       } catch (error) {
-        Alert.alert("Error", "Failed to fetch quotes");
+        Alert.alert(myerror, errormsg);
       }
 
     };
@@ -50,7 +52,7 @@ export default function Index() {
                 Alert.alert("No Data", "No quotes found");
               }
             } catch (error) {
-              Alert.alert("Error", "Failed to fetch quotes");
+              Alert.alert(myerror, errormsg);
             }
 
           };

@@ -1,3 +1,5 @@
 {
-    "refresh": "Aktualisieren"
+    "refresh": "Aktualisieren",
+    "error": "Fehler",
+    "errormsg": "Laden von Zitaten fehlgeschlagen"
 }

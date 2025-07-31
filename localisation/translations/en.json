@@ -1,3 +1,5 @@
 {
-    "refresh": "Refresh"
+    "refresh": "Refresh",
+    "error": "Error",
+    "errormsg": "Failed to fetch quotes"
 }
