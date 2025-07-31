@@ -1,5 +1,7 @@
 {
     "refresh": "Refresh",
     "error": "Error",
-    "errormsg": "Failed to fetch quotes"
+    "errormsg": "Failed to fetch quotes",
+    "nodata": "No Data",
+    "noquotes": "No quotes found"
 }

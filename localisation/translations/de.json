@@ -1,5 +1,7 @@
 {
     "refresh": "Aktualisieren",
     "error": "Fehler",
-    "errormsg": "Laden von Zitaten fehlgeschlagen"
+    "errormsg": "Laden von Zitaten fehlgeschlagen",
+    "nodata": "Keine Daten",
+    "noquotes": "Keine Zitate gefunden"
 }
