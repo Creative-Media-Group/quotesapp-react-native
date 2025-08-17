@@ -4,6 +4,16 @@ import fetchQuotes from "../utils/fetchQuotes"
 import Constants from 'expo-constants';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { i18n } from "@/utils/mylocalisation"
+import * as Notifications from 'expo-notifications';
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowBanner: true,
+    shouldShowList: true,
+    shouldPlaySound: false,
+    shouldSetBadge: false,
+  }),
+});
 
 export default function Index() {
   var button_title = i18n.t("refresh")
