@@ -15,6 +15,16 @@ Notifications.setNotificationHandler({
   }),
 });
 
+function mynotification(title: string, body: string) {
+  Notifications.scheduleNotificationAsync({
+    content: {
+      title: title,
+      body: body
+    },
+    trigger: null,
+  });
+};
+
 export default function Index() {
   var button_title = i18n.t("refresh")
   var myerror = i18n.t("error")
