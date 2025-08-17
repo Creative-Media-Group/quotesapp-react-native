@@ -15,8 +15,8 @@ Notifications.setNotificationHandler({
   }),
 });
 
-function mynotification(title: string, body: string) {
-  Notifications.scheduleNotificationAsync({
+async function mynotification(title: string, body: string) {
+  await Notifications.scheduleNotificationAsync({
     content: {
       title: title,
       body: body
@@ -68,13 +68,13 @@ export default function Index() {
               if (data && data.length > 0) {
                 setQuote(data[0].quote); // Zitat auslesen
                 setAuthor(data[0].author); // Autor auslesen
+                mynotification("test", "test")
               } else {
                 Alert.alert("No Data", "No quotes found");
               }
             } catch (error) {
               Alert.alert(myerror, errormsg);
             }
-
           };
           loadQuote();
         }}>

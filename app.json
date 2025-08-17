@@ -12,10 +12,12 @@
       "supportsTablet": true
     },
     "android": {
+      "edgeToEdgeEnabled": true,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.tct123.quotesapp"
     },
     "web": {
       "bundler": "metro",
