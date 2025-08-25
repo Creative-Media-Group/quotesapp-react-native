@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Alert, Text, View, Button, StyleSheet } from "react-native";
+import { Alert, Text, View, Button, StyleSheet, ScrollView } from "react-native";
 import fetchQuotes from "../utils/fetchQuotes"
 import Constants from 'expo-constants';
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -60,7 +60,7 @@ export default function Index() {
     >
       <Text style={style.text}>{quote}</Text>
       <Text style={style.text}>{autor}</Text>
-      <View style={style.refreshbtn}>
+      <ScrollView style={style.refreshbtn}>
         <Button title={button_title} onPress={() => {
           const loadQuote = async () => {
             try {
@@ -79,7 +79,7 @@ export default function Index() {
           loadQuote();
         }}>
         </Button>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
