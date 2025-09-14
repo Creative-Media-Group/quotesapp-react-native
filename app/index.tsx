@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Alert, Text, View, Button, StyleSheet, ScrollView } from "react-native";
+import { Alert, Text, Button, StyleSheet, ScrollView } from "react-native"; // View
 import fetchQuotes from "../utils/fetchQuotes"
-import Constants from 'expo-constants';
+//import Constants from 'expo-constants';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { i18n } from "@/utils/mylocalisation"
 import * as Notifications from 'expo-notifications';
@@ -26,9 +26,9 @@ async function mynotification(title: string, body: string) {
 };
 
 export default function Index() {
-  var button_title = i18n.t("refresh")
-  var myerror = i18n.t("error")
-  var errormsg = i18n.t("errormsg")
+  let button_title = i18n.t("refresh")
+  let myerror = i18n.t("error")
+  let errormsg = i18n.t("errormsg")
   const apiKey: any = process.env.EXPO_PUBLIC_API_KEY;
   const [quote, setQuote] = useState("");
   const [autor, setAuthor] = useState("");
