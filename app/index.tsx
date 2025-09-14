@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Alert, Text, Button, StyleSheet, ScrollView } from "react-native"; // View
 import fetchQuotes from "../utils/fetchQuotes"
-//import Constants from 'expo-constants';
+// import Constants from 'expo-constants';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { i18n } from "@/utils/mylocalisation"
 import * as Notifications from 'expo-notifications';
@@ -29,6 +29,8 @@ export default function Index() {
   let button_title = i18n.t("refresh")
   let myerror = i18n.t("error")
   let errormsg = i18n.t("errormsg")
+  let nodata = i18n.t("nodata")
+  let noquotes = i18n.t("noquotes")
   const apiKey: any = process.env.EXPO_PUBLIC_API_KEY;
   const [quote, setQuote] = useState("");
   const [autor, setAuthor] = useState("");
@@ -41,7 +43,7 @@ export default function Index() {
           setQuote(data[0].quote); // Zitat auslesen
           setAuthor(data[0].author); // Autor auslesen
         } else {
-          Alert.alert("No Data", "No quotes found");
+          Alert.alert(nodata, noquotes);
         }
       } catch (error) {
         Alert.alert(myerror, errormsg);
