@@ -1,4 +1,5 @@
 # Welcome to your Expo app 👋
+DEPRECATED - GO TO WEBSITE: https://codeberg.org/Creative-Media-Group/quotesapp-react-native
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
